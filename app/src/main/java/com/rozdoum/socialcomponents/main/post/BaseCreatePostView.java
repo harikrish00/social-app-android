@@ -33,6 +33,8 @@ public interface BaseCreatePostView extends PickImageView {
 
     String getDescriptionText();
 
+    String getLocationText();
+
     void requestImageViewFocus();
 
     void onPostSavedSuccess();

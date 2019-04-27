@@ -37,6 +37,7 @@ public abstract class BaseCreatePostActivity<V extends BaseCreatePostView, P ext
     protected ProgressBar progressBar;
     protected EditText titleEditText;
     protected EditText descriptionEditText;
+    protected EditText locationEditText;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -50,6 +51,7 @@ public abstract class BaseCreatePostActivity<V extends BaseCreatePostView, P ext
         titleEditText = findViewById(R.id.titleEditText);
         descriptionEditText = findViewById(R.id.descriptionEditText);
         progressBar = findViewById(R.id.progressBar);
+        locationEditText = findViewById(R.id.locationEditText);
 
         imageView = findViewById(R.id.imageView);
 
@@ -103,8 +105,11 @@ public abstract class BaseCreatePostActivity<V extends BaseCreatePostView, P ext
     }
 
     @Override
-    public void requestImageViewFocus() {
-        imageView.requestFocus();
+    public void requestImageViewFocus() {imageView.requestFocus();}
+
+    @Override
+    public String getLocationText() {
+        return locationEditText.getText().toString();
     }
 
     @Override

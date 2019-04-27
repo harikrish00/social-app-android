@@ -106,6 +106,7 @@ class PostDetailsPresenter extends BasePresenter<PostDetailsView> {
         ifViewAttached(view -> {
             view.setTitle(post.getTitle());
             view.setDescription(post.getDescription());
+            view.setLocation(post.getLocation());
             view.loadPostDetailImage(post.getImageTitle());
 
             loadAuthorProfile();

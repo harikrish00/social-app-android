@@ -45,7 +45,7 @@ public abstract class BaseCreatePostPresenter<V extends BaseCreatePostView> exte
     @StringRes
     protected abstract int getSaveFailMessage();
 
-    protected abstract void savePost(final String title, final String description);
+    protected abstract void savePost(final String title, final String description, final String location);
 
     protected abstract boolean isImageRequired();
 
@@ -57,11 +57,17 @@ public abstract class BaseCreatePostPresenter<V extends BaseCreatePostView> exte
 
             String title = view.getTitleText().trim();
             String description = view.getDescriptionText().trim();
+            String location = view.getLocationText().trim();
 
             boolean cancel = false;
 
             if (TextUtils.isEmpty(description)) {
                 view.setDescriptionError(context.getString(R.string.warning_empty_description));
+                cancel = true;
+            }
+
+            if (TextUtils.isEmpty(location)) {
+                view.setDescriptionError(context.getString(R.string.warning_empty_location));
                 cancel = true;
             }
 
@@ -82,7 +88,7 @@ public abstract class BaseCreatePostPresenter<V extends BaseCreatePostView> exte
             if (!cancel) {
                 creatingPost = true;
                 view.hideKeyboard();
-                savePost(title, description);
+                savePost(title, description, location);
             }
         });
     }

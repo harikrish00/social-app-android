@@ -39,12 +39,13 @@ public class CreatePostPresenter extends BaseCreatePostPresenter<CreatePostView>
     }
 
     @Override
-    protected void savePost(String title, String description) {
+    protected void savePost(String title, String description, String location) {
         ifViewAttached(view -> {
             view.showProgress(R.string.message_creating_post);
             Post post = new Post();
             post.setTitle(title);
             post.setDescription(description);
+            post.setLocation(location);
             post.setAuthorId(FirebaseAuth.getInstance().getCurrentUser().getUid());
             postManager.createOrUpdatePostWithImage(view.getImageUri(), this, post);
         });

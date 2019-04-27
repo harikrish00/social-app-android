@@ -69,12 +69,14 @@ class EditPostPresenter extends BaseCreatePostPresenter<EditPostView> {
     }
 
     @Override
-    protected void savePost(final String title, final String description) {
+    protected void savePost(final String title, final String description, final String location) {
         ifViewAttached(view -> {
             view.showProgress(R.string.message_saving);
 
             post.setTitle(title);
             post.setDescription(description);
+            post.setLocation(location);
+
 
             if (view.getImageUri() != null) {
                 postManager.createOrUpdatePostWithImage(view.getImageUri(), this, post);

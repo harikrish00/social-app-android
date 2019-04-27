@@ -98,6 +98,7 @@ public class PostDetailsActivity extends BaseActivity<PostDetailsView, PostDetai
     private ImageView postImageView;
     private TextView titleTextView;
     private TextView descriptionEditText;
+    private TextView locationEditText;
     private ProgressBar commentsProgressBar;
     private RecyclerView commentsRecyclerView;
     private TextView warningCommentsTextView;
@@ -136,6 +137,7 @@ public class PostDetailsActivity extends BaseActivity<PostDetailsView, PostDetai
 
         titleTextView = findViewById(R.id.titleTextView);
         descriptionEditText = findViewById(R.id.descriptionEditText);
+        locationEditText = findViewById(R.id.locationEditText);
         postImageView = findViewById(R.id.postImageView);
         progressBar = findViewById(R.id.progressBar);
         commentsRecyclerView = findViewById(R.id.commentsRecyclerView);
@@ -365,6 +367,11 @@ public class PostDetailsActivity extends BaseActivity<PostDetailsView, PostDetai
     @Override
     public void setDescription(String description) {
         descriptionEditText.setText(description);
+    }
+
+    @Override
+    public void setLocation(String location) {
+        locationEditText.setText(location);
     }
 
     @Override

@@ -33,6 +33,7 @@ public class Post implements Serializable, LazyLoading {
     private String id;
     private String title;
     private String description;
+    private String location;
     private long createdDate;
     private String imagePath;
     private String imageTitle;
@@ -67,6 +68,14 @@ public class Post implements Serializable, LazyLoading {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getDescription() {
@@ -138,6 +147,7 @@ public class Post implements Serializable, LazyLoading {
 
         result.put("title", title);
         result.put("description", description);
+        result.put("location", location);
         result.put("createdDate", createdDate);
         result.put("imagePath", imagePath);
         result.put("imageTitle", imageTitle);
